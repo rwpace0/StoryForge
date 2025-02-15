@@ -59,8 +59,8 @@ pip install -U flask-cors
 In your project directory terminal (best-by-notification):
 
 ```bash
-cd client
-npm run start
+cd frontend
+npm run dev
 ```
 
 ### To run the Backend
@@ -69,7 +69,7 @@ If you are having the Front-end running, add another terminal to simultaneously 
 
 In your project directory terminal (best-by-notification):
 ```bash
-cd flask-server
+cd backend
 python main.py
 ```
 
