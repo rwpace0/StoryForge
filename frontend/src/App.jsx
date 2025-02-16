@@ -36,6 +36,7 @@ function App() {
                 body: JSON.stringify({
                     prompt: `Write the opening of a story about ${text} with these requirements:
                         1. Minimum 2 paragraphs
+                        3. Write enough to introduce the characters and setting
                         2. Introduce characters
                         3. Open-ended, no conclusion
                         4. Spark reader's creativity
@@ -120,9 +121,10 @@ function App() {
                     border: "2px solid #6b5840",
                     borderRadius: "5px",
                     boxShadow: "0 4px 15px rgba(0, 0, 0, 0.1)",
-                    textAlign: "center"
+                    textAlign: "center",
+                    color: "#3d2f2f"
                 }}>
-                    <h2>Enchanted Illustration</h2>
+                    <h2>Illustration</h2>
                     <img
                         src={imageURL}
                         alt="AI Generated"
@@ -144,17 +146,20 @@ function App() {
                     borderRadius: "5px",
                     boxShadow: "0 4px 15px rgba(0, 0, 0, 0.1)",
                     width: "90%",
-                    maxWidth: "800px"
+                    maxWidth: "800px",
+                    textALign: "center",
+                    color: "#3d2f2f"
                 }}>
-                    <h2>Story Beginnings</h2>
-                    <pre className="story-text" style={{  // 👈 Added inline styles
+                    <h2 style={{ margin: "0 0 1rem 0" }}>Beginnings</h2>
+                    <pre className="story-text" style={{ 
                         whiteSpace: "pre-wrap",
                         wordWrap: "break-word",
                         overflowX: "hidden",
                         maxHeight: "600px",
                         overflowY: "auto",
                         padding: "10px",
-                        margin: 0
+                        margin: 0,
+                        textALign: "left"
                     }}>
                         {generatedText}
                     </pre>

@@ -63,6 +63,7 @@
 }
 
 .story-title {
+  text-align: center;
   font-family: 'Cinzel Decorative', cursive;
   color: #3d2f2f !important;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
