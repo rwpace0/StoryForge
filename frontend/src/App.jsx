@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 
-
 function App() {
     const [text, setText] = useState("");
     const [imageURL, setImageURL] = useState("");
@@ -34,8 +33,9 @@ function App() {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({ prompt: `Write the start of a detailed story about ${text} but do NOT finish the story. 
-                It should invoke creativity to the reader to continue the story. 
                 It has to be MINUMUM two paragrapghs long.
+                It should not come to a conclusion and should be open-ended.
+                It should invoke creativity to the reader to continue the story. 
                 Include characters.` }),
             });
     
