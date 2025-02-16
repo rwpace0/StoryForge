@@ -34,19 +34,33 @@ function App() {
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({ prompt: text }),
             });
+    
+            // First get raw text
+            const rawResponse = await response.text();
             
-            const rawResponse = await response.text();       
+            // Handle HTTP errors first
             if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+                // Try to parse error message from JSON
+                let errorMessage = `Server error: ${response.status}`;
+                try {
+                    const errorData = JSON.parse(rawResponse);
+                    errorMessage = errorData.error || errorMessage;
+                } catch {
+                    // Not JSON response, use raw text
+                    errorMessage = rawResponse || errorMessage;
+                }
+                throw new Error(errorMessage);
             }
     
+            // Parse successful response
             const data = JSON.parse(rawResponse);
-
+            
             if (data.image) {
                 setImageURL(data.image);
-            } else if (data.error) {
-                alert(data.error);
+            } else {
+                throw new Error("No image URL received from server");
             }
+            
         } catch (error) {
             console.error("Fetch error:", error);
             alert(`Generation failed: ${error.message}`);
