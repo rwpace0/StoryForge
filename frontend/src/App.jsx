@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "./App.css";
+import './index.css';
 
 function App() {
     const [text, setText] = useState("");
@@ -33,17 +34,17 @@ function App() {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-                    prompt: `You should only write about ${text}, and not write the following sets of instructions.
-                    Write the start of a detailed story about ${text} but do NOT finish the story. 
-                    It has to be MINUMUM two paragraphs long.
-                    It should not come to a conclusion and should be open-ended.
-                    It should invoke creativity to the reader to continue the story. 
-                    It should under no circumstances resemble a complete story, ensure that it only sparks inspiration for the reader to continue the story their own way.
-                    The text generated must provide a foundation for a story to be built upon by the reader.
-                    The text generated can never contain any sort of guidance for the prompt that isn't part of the story, such as listing any of the instructions given for story creation.
-                    The text should resemble the beginnings of a long and drawn out story unless prompt states to do otherwise.
-                    Include characters.`,
-                }),
+                    prompt: `Write the opening of a story about ${text} with these requirements:
+                        1. Minimum 2 paragraphs
+                        2. Introduce characters
+                        3. Open-ended, no conclusion
+                        4. Spark reader's creativity
+                        5. Never mention instructions
+  
+                        Story context: ${text}
+  
+                        Actual story beginning:`
+}),
             });
 
             // First get raw text
@@ -72,55 +73,89 @@ function App() {
     };
 
     return (
-        <div style={{ textAlign: "center", padding: "20px", fontFamily: "'Roboto', sans-serif", background: "url('https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') no-repeat center center fixed, linear-gradient(to top, rgb(154, 154, 154), rgb(20, 20, 20))", backgroundSize: "cover", backgroundBlendMode: "overlay", minHeight: "200vh", minWidth: "195vh" }}>
-            <h1 style={{ color: "#fff", marginBottom: "20px" }}>Voice-Powered AI Content Generator</h1>
-
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "10px" }}>
+        <div className="story-container">
+            <h1 className="story-title">Forge your Story</h1>
+    
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "20px", marginBottom: "40px" }}>
                 <button
+                    className="vintage-button"
                     onClick={startListening}
                     disabled={listening}
-                    style={{ padding: "10px 20px", backgroundColor: "#4CAF50", color: "white", borderRadius: "5px", border: "none", cursor: "pointer", transition: "background-color 0.3s" }}
-                    onMouseOver={(e) => e.target.style.backgroundColor = "#45a049"}
-                    onMouseOut={(e) => e.target.style.backgroundColor = "#4CAF50"}
                 >
-                    {listening ? "Listening..." : "Speak Prompt"}
+                    {listening ? "🔴 Listening..." : "🎤 Speak Your Prompt"}
                 </button>
-
+    
                 <textarea
                     value={text}
                     onChange={(e) => setText(e.target.value)}
-                    placeholder="Enter your prompt here"
-                    style={{ width: "80%", height: "80px", padding: "10px", border: "1px solid #ccc", borderRadius: "5px", boxShadow: "0 2px 4px rgba(0,0,0,0.1)", transition: "box-shadow 0.3s" }}
-                    onFocus={(e) => e.target.style.boxShadow = "0 4px 8px rgba(0,0,0,0.2)"}
-                    onBlur={(e) => e.target.style.boxShadow = "0 2px 4px rgba(0,0,0,0.1)"}
+                    placeholder="Enter your story prompt here..."
+                    style={{ 
+                        width: "80%",
+                        minHeight: "100px",
+                        padding: "20px",
+                        border: "2px solid #6b5840",
+                        borderRadius: "5px",
+                        background: "rgba(255, 248, 231, 0.9)",
+                        fontFamily: "'Crimson Text', serif",
+                        fontSize: "1.1rem",
+                        color: "#3d2f2f",
+                        resize: "vertical"
+                    }}
                 />
-
+    
                 <button
+                    className="vintage-button"
                     onClick={generateContent}
                     disabled={!text || loading}
-                    style={{ padding: "10px 20px", backgroundColor: "#008CBA", color: "white", borderRadius: "5px", border: "none", cursor: "pointer", transition: "background-color 0.3s" }}
-                    onMouseOver={(e) => e.target.style.backgroundColor = "#007bb5"}
-                    onMouseOut={(e) => e.target.style.backgroundColor = "#008CBA"}
                 >
-                    {loading ? "Generating..." : "Generate Content"}
+                    {loading ? "⚒️ Forging Story..." : "📖 Generate Introduction"}
                 </button>
             </div>
-
+    
             {imageURL && (
-                <div style={{ margin: "20px 0", padding: "10px", border: "1px solid #ccc", borderRadius: "5px", boxShadow: "0 2px 4px rgba(0,0,0,0.1)" }}>
-                    <h2>Generated Image</h2>
+                <div style={{ 
+                    margin: "2rem 0",
+                    padding: "20px",
+                    background: "rgba(255, 248, 231, 0.9)",
+                    border: "2px solid #6b5840",
+                    borderRadius: "5px",
+                    boxShadow: "0 4px 15px rgba(0, 0, 0, 0.1)",
+                    textAlign: "center"
+                }}>
+                    <h2>Enchanted Illustration</h2>
                     <img
                         src={imageURL}
                         alt="AI Generated"
-                        style={{ width: "400px", borderRadius: "8px" }}
+                        style={{ 
+                            width: "400px", 
+                            borderRadius: "8px",
+                            boxShadow: "0 4px 15px rgba(0, 0, 0, 0.2)"
+                        }}
                     />
                 </div>
             )}
-
+    
             {generatedText && (
-                <div style={{ margin: "20px auto", padding: "15px", maxWidth: "80%", textAlign: "left", backgroundColor: "#282828", borderRadius: "8px", whiteSpace: "pre-line", boxShadow: "0 2px 4px rgba(0,0,0,0.1)" }}>
-                    <h2>Generated Story</h2>
-                    <pre style={{ whiteSpace: "pre-wrap", wordWrap: "break-word", color: "#fff", fontSize: "16px" }}>
+                <div style={{ 
+                    margin: "2rem auto",
+                    padding: "2rem",
+                    background: "rgba(255, 248, 231, 0.9)",
+                    border: "2px solid #6b5840",
+                    borderRadius: "5px",
+                    boxShadow: "0 4px 15px rgba(0, 0, 0, 0.1)",
+                    width: "90%",
+                    maxWidth: "800px"
+                }}>
+                    <h2>Story Beginnings</h2>
+                    <pre className="story-text" style={{  // 👈 Added inline styles
+                        whiteSpace: "pre-wrap",
+                        wordWrap: "break-word",
+                        overflowX: "hidden",
+                        maxHeight: "600px",
+                        overflowY: "auto",
+                        padding: "10px",
+                        margin: 0
+                    }}>
                         {generatedText}
                     </pre>
                 </div>

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;700&display=swap');
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -28,11 +30,17 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background: #e5d9c8 !important;
+  padding: 2rem;
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+}
+
+h1, h2, h3 {
+  font-family: 'Cinzel Decorative', cursive !important;
 }
 
 button {
@@ -52,6 +60,11 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed !important;
 }
 
 @media (prefers-color-scheme: light) {

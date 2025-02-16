@@ -14,7 +14,7 @@ HF_TOKEN = ""
 HF_API = "https://api-inference.huggingface.co/models/tiiuae/falcon-7b-instruct"
 
 
-@app.route("/generate", methods=["POST"])
+@app.route("/generate", methods=['POST'])
 def generate_image():
     if not STABILITY_API_KEY or not HF_TOKEN:
             return jsonify({"error": "API keys not found"}), 500
