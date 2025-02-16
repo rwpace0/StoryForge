@@ -95,6 +95,8 @@ def generate_image():
             generated_text = "\n\n".join(paragraphs[:3])
         else:
             generated_text = "Failed to generate text."
+        
+        
 
         return jsonify({
             "image": image_url,
