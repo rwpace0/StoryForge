@@ -1,8 +1,7 @@
 #root {
-  max-width: 1280px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
 }
 
 .logo {
@@ -39,4 +38,83 @@
 
 .read-the-docs {
   color: #888;
+}
+
+/* New Storybook Styles */
+.story-container {
+  background: url('https://img.freepik.com/free-photo/old-brown-paper-texture-background_1373-431.jpg') no-repeat center center/cover;
+  padding: 3rem 4rem;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+  position: relative;
+  min-height: 80vh;
+  border: 1px solid #5a4d41;
+}
+
+.story-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom right, transparent 50%, rgba(0,0,0,0.05));
+  pointer-events: none;
+}
+
+.story-title {
+  font-family: 'Cinzel Decorative', cursive;
+  color: #3d2f2f !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  border-bottom: 2px solid #3d2f2f;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem !important;
+}
+
+.story-text {
+  font-family: 'Crimson Text', serif;
+  color: #3d2f2f;
+  text-align: justify;
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-width: 100%;
+  line-height: 1.6;
+  font-size: 1.1rem;
+  padding: 15px;
+  margin: 10px 0;
+}
+textarea {
+  width: 90% !important;
+  max-width: 800px !important;
+}
+
+.vintage-button {
+  background: #6b5840 !important;
+  border: 1px solid #4d3e2f !important;
+  color: #fff4e3 !important;
+  font-family: 'Cinzel', serif;
+  padding: 12px 30px !important;
+  border-radius: 30px !important;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.vintage-button:hover {
+  background: #7d6850 !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1e6d3;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6b5840;
+  border-radius: 4px;
 }

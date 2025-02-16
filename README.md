@@ -1,126 +1,23 @@
+Welcome to StoryForge!
 
-## Set up for the environments
+This project is designed to create a storyline for those that wish to kickstart their imagination
+Using a combination of AI models to provide image and text generation and prompting them with an accurate speech to text model we managed to provide a simple way to fuel creative storytelling.
 
-### 1. Install Node.js for the frontend
+To run this project, you will need to open two terminals, using cd backend for one and cd frontend for the other.
+In the backend terminal type "python main.py" (omit quotations) and in the frontend terminal type "npm run dev" (omit quotations).
 
-Download Node.js here: https://nodejs.org/en
+Once you are running the project, in the frontend terminal you will need to ctrl+click on the localhost link that was just created.
+This will open the page in your browser.
 
-### 2. Set up npm 
+To use the application, simply type in a prompt for the kind of story you want or press the speech button to turn on the speech-to-text feature.
+The speech-to-text will stop as soon as it detects that you stopped talking, but you can keep editting it with voice or manually wherever you want.
 
-In the project directory terminal:
+Once you are happy with your prompt, hit the generate button and wait for the models to complete their work.
+The image and text will update simultaneously, and your storyline will be made.
 
-```bash
-cd frontend
-npm install
-```
 
-### 3. Install Python
 
-Check if you have Python: 
-
-In the project directory terminal:
-
-```bash
-python --version
-```
-To install Python:
-
-Directly install Python from the website: https://www.python.org/downloads/
-
-### 4. Install Flask:
-
-```bash
-pip install Flask
-```
-
-### 5. Install Flask Library:
-
-In our project directory:
-
-```bash
-cd backend
-```
-
-#### Install Flask_SQLAlchemy
-
-```bash
-pip install -U Flask-SQLAlchemy
-```
-
-#### Install Flask_CORS
-
-```bash
-pip install -U flask-cors
-```
-## How to run the Project
-
-### To run the Frontend
-
-In your project directory terminal (best-by-notification):
-
-```bash
-cd frontend
-npm run dev
-```
-
-### To run the Backend
-
-If you are having the Front-end running, add another terminal to simultaneously run the backend.
-
-In your project directory terminal (best-by-notification):
-```bash
-cd backend
-python main.py
-```
-
-## How to Contribute
-
-### 1. Pull the latest changes
-
-Before starting any work, ensure you're up-to-date with the latest version of the project. To pull the most recent changes from the remote repository, run:
-
-```bash
-git pull origin main
-```
-
-This command will fetch the latest changes from the main branch and merge them into your local repository.
-
-### 2. Checkout a Branch
-
-Before starting any work, ensure you're working on one of your own branches or a branch that you've been assigned to. To switch to a branch, run the following command in your terminal:
-
-```bash
-git checkout <branch-name>
-```
-
-If the branch doesn’t exist yet, create it:
-
-```bash
-git checkout -b <branch-name>
-```
-### 3. Make Changes (basically coding)
-Implement your changes, bug fixes, or updates within the checked-out branch. Be sure to follow coding standards and project guidelines when contributing.
-
-### 4. Commit Your Changes
-After making changes, you need to stage and commit them. Make sure to use a meaningful and descriptive commit message to clearly explain what changes were made.
-
-```bash
-git add .
-git commit -m "Your descriptive commit message"
-```
-### 5. Push the Branch to Origin
-Once you're satisfied with your changes, push the branch to the remote repository on GitHub:
-
-```bash
-git push origin <branch-name>
-```
-
-### 6. Create a Pull Request (PR)
-Go to the Best By Notification GitHub repository and create a pull request (PR) from your branch to the appropriate base branch (usually main).
-
-1. Go to the Pull Requests tab.
-2. Click on New Pull Request.
-3. Choose your branch and the branch you want to merge into (e.g., main).
-4. Add a description of the changes (along with images would be great) you made and submit the PR.
-   
-Once your pull request has been reviewed and approved by the maintainers, it will be merged into the main codebase.
+Notes:
+The program uses API keys linked to us, the creators. We did not want to pay the $9 fee for privacy protection in the domain we claimed so we did not want to risk putting those keys out in the internet.
+One of these keys is not infinite and will innevitably break the program if used too many times. If testing is rigourous, please keep this in mind.
+We did claim a domain, storyforge.tech, but it does not have any content and will go to the default lander since we did not want to risk linking anything important to an unprotected domain.

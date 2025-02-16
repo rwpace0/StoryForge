@@ -4,8 +4,8 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app, resources={  # 👈 Update CORS configuration
-    r"/generate/*": {
-        "origins": ["http://localhost:5173"],
+    r"/generate*": {
+        "origins": ["http://localhost:5174"],
         "methods": ["POST", "OPTIONS"],
         "allow_headers": ["Content-Type"]
     }
